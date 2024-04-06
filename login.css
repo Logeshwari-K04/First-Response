@@ -20,7 +20,7 @@ body {
     padding: 14px 12px;
     font-size: 16px;
     border-radius: 2px; 
-    font-family: Raleway, sans-serif;
+    /* font-family: Raleway, sans-serif; */
   }
 
 .login input[type=text],
@@ -33,7 +33,7 @@ body {
 }
 
 button[id=myButton] {
-  border: 1px  ;
+  border: 1px;
   width: 100%;
   padding:15px;
   background: #FFF3E6;

@@ -1,0 +1,60 @@
+body {
+    font-family: sans-serif;
+}
+ 
+
+.cont{
+  margin-top: 50px;
+  border: 1px solid #F6F3FF;
+  width: 400px;
+  height: 710px;
+  margin: 0 auto;
+  background-color: #fffbf8;
+}
+
+
+#title {
+  margin-top: 50px;
+  margin-left: 5px;
+  text-align: center;
+  font-size: 32px;
+  color: #713F97;
+}
+
+#dist-sel{
+  width: 90%;
+  display: block;
+  box-sizing: border-box;
+  margin: 10px 20px;
+  padding: 14px 12px;
+  font-size: 16px;
+  margin-top: 30px;
+  border: 1px solid;
+  border-radius: 2px;
+  border-color: #b786dc;
+  outline: none;
+}
+
+#find-hosps{
+  padding: 5px;
+  margin-top: 7px;
+  margin-bottom: 25px;
+  margin-left: 285px;
+  color:#000000;
+  justify-content: flex-end;
+  border: 1px;
+  border-radius: 2px;
+  background-color: #F6F3FF;
+}
+
+#hospital-list {
+  margin-bottom: 20px;
+}
+  
+.hospital-item {
+  margin-bottom: 10px;
+}
+
+#loading-more{
+  margin-top: 10px;
+}
