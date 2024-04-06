@@ -1,5 +1,5 @@
 const firebaseConfig = {
-    apiKey: "AIzaSyANrbJ2Y1MnBg_ijUHJy_KxONjDNwBsCr4",
+    apiKey: "",
     authDomain: "flash-ascent-413807.firebaseapp.com",
     projectId: "flash-ascent-413807",
     storageBucket: "flash-ascent-413807.appspot.com",
