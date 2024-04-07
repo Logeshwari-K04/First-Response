@@ -1,15 +1,29 @@
+import { initializeApp } from 'firebase/app'
+import {
+  getFirestore, collection, getDocs, query, where, startAfter, limit
+} from 'firebase/firestore'
+
+import debounce from "lodash/debounce"
+
 const firebaseConfig = {
-    apiKey: "",
+    apiKey: "AIzaSyANrbJ2Y1MnBg_ijUHJy_KxONjDNwBsCr4",
     authDomain: "flash-ascent-413807.firebaseapp.com",
     projectId: "flash-ascent-413807",
     storageBucket: "flash-ascent-413807.appspot.com",
     messagingSenderId: "578381693616",
     appId: "1:578381693616:web:7aa9fbcfb02a852ebf3175",
     measurementId: "G-PH2PS2KCRR"
+};
+function ddebounce(func, wait) {
+  let timeout;
+  return function (...args) {
+    const context = this;
+    clearTimeout(timeout);
+    timeout = setTimeout(() => func.apply(context, args), wait);
   };
-  
-  firebase.initializeApp(firebaseConfig);
-  const db = firebase.firestore();
+}
+  initializeApp(firebaseConfig);
+  const db = getFirestore();
   
   const districtSelect = document.getElementById('dist-sel');
   const findHospitalsBtn = document.getElementById('find-hosps');
@@ -18,8 +32,8 @@ const firebaseConfig = {
   
   let lastVisibleDoc = null; 
 
-  db.collection('hospitals')
-  .get()
+  const colRef = collection(db, 'hospitals')
+  getDocs(colRef)
   .then(querySnapshot => {
     const uniqueDistricts = [...new Set(querySnapshot.docs.map(doc => doc.data().district))];
     uniqueDistricts.sort();
@@ -45,11 +59,9 @@ const firebaseConfig = {
     }
   
     try {
-      const initialhospitalsQuery = db.collection('hospitals')
-      .where('district', '==', district)
-      .limit(5);
+      const initialhospitalsQuery = query(collection(db, 'hospitals'), where('district', '==', district), limit(5));
       
-      const querySnapshot = await initialhospitalsQuery.get();
+      const querySnapshot = await getDocs(initialhospitalsQuery);
   
       hospitalsList.innerHTML = '';
   
@@ -66,6 +78,8 @@ const firebaseConfig = {
             <p>Address: ${hospital.address}</p>
             <p>Area: ${hospital.area}</p>
             <p>Phone: ${hospital.phone}</p>
+          
+          
           `;
           hospitalsList.appendChild(hospitalItem);
         });
@@ -76,35 +90,40 @@ const firebaseConfig = {
           loadingMore.style.display = 'none';
         }
       }
-      window.addEventListener('scroll', handleScroll)
+      
     } catch (error) {
       console.error('Error fetching hospitals:', error);
-      alert('An error occurred. Please try again later.');
+      alert('An error fetching hospitals data occurred. Please try again later.');
     }
   });
 
+  // window.addEventListener('scroll', handleScroll);
+  
+  const debouncedHandleScroll = ddebounce(handleScroll, 300);
+  window.addEventListener('scroll', debouncedHandleScroll);
+
+  let dist;
+
   function handleScroll() {
+    dist = districtSelect.value;
     const scrollY = window.scrollY;
     const bodyHeight = document.body.offsetHeight;
     const windowHeight = window.innerHeight;
   
     if (scrollY + windowHeight >= bodyHeight - 50) {
-      loadMoreHospitals();
+      loadMoreHospitals(dist);
     }
   }
   
-  async function loadMoreHospitals() {
+  async function loadMoreHospitals(dist) {
     if (!lastVisibleDoc) return; 
   
     loadingMore.style.display = 'block';
   
-    const nextHospitalsQuery = db.collection('hospitals')
-      .where('district', '==', district)
-      .startAfter(lastVisibleDoc) 
-      .limit(5); 
+    const nextHospitalsQuery = query(collection(db, 'hospitals'), where('district', '==', dist), startAfter(lastVisibleDoc), limit(5)); 
 
     try{
-      const nextQuerySnapshot = await nextHospitalsQuery.get();
+      const nextQuerySnapshot = await getDocs(nextHospitalsQuery);
   
     if (nextQuerySnapshot.empty) {
       loadingMore.style.display = 'none'; 
@@ -119,6 +138,8 @@ const firebaseConfig = {
           <p>Address: ${hospital.address}</p>
           <p>Area: ${hospital.area}</p>
           <p>Phone: ${hospital.phone}</p>
+        
+        
         `;
         hospitalsList.appendChild(hospitalItem);
       });
