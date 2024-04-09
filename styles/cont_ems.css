@@ -1,5 +1,5 @@
 body {
-    font-family: sans-serif;
+  font: "Balsamiq Sans", Helvetica, Arial, serif;
 }
  
 
@@ -36,15 +36,15 @@ body {
 }
 
 #find-hosps{
-  padding: 5px;
+  font-size: 20px;
+  padding: 8px;
   margin-top: 7px;
   margin-bottom: 25px;
-  margin-left: 285px;
+  margin-left: 130px;
   color:#000000;
-  justify-content: flex-end;
-  border: 1px;
+  border: 2px;
   border-radius: 2px;
-  background-color: #F6F3FF;
+  background-color: #eae3ff;
 }
 
 #hospital-list {

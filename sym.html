@@ -36,21 +36,26 @@
 
           <div class="form-area">
             <div class="error">
-              <img src="./images/cross.svg" alt="cross" /> Please fill out all fields correctly
+              Please fill out all fields correctly
             </div>
+
             <div class="searchInput">
               <input type="text" name="year-of-birth" required />
 
               <label for="year-of-birth" class="label-name">
-                <span class="content-name"> Year of Birth </span></label
-              >
+                <span class="content-name"> Year of Birth </span>
+              </label>
             </div>
             <div class="searchInput">
-              <input type="text" name="gender" required />
-
-              <label for="gender" class="label-name">
-                <span class="content-name"> Gender </span></label
-              >
+              <label for="gender" class="labelgender">
+                <span class="content-name">Gender</span>
+              </label>
+            </div>
+            <div class="searchInput">
+              <select id="gender" name="Gender" required>
+                <option value="male">Male</option>
+                <option value="female">Female</option>
+              </select>
             </div>
 
             <div class="all-symptoms-autogenerate">
@@ -69,6 +74,7 @@
                 </div>
               </div>
             </div>
+
             <div class="dropdown-options">
               <ul></ul>
             </div>

@@ -161,10 +161,10 @@ function OnGetResults() {
     let isValid = true;
 
     yob = document.querySelector("input[name = year-of-birth]").value.toLowerCase();
-    gender = document.querySelector("input[name = gender]").value.toLowerCase();
+    gender = document.querySelector("select[name = Gender]").value;
 
-    if (gender == "m") { gender = "male" }
-    else if (gender == "f") { gender = "female" }
+    if (gender == "male") { gender = "male" }
+    else if (gender == "female") { gender = "female" }
 
     if (!yob || !gender) { isValid = false; }
     else if (!(gender == "male" || gender == "female")) { isValid = false; }

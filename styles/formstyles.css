@@ -1,3 +1,7 @@
+body{
+  font: "Balsamiq Sans", Helvetica, Arial, serif;
+}
+
 .form-area {
     --formelement-height: 60px;
     --keyColor: #1976d2;
@@ -40,6 +44,35 @@
     border: none;
     background-color: #fff;
   }
+
+  .searchInput labelgender{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+  }
+#gender{
+  width: 100%;
+  display: block;
+  box-sizing: border-box;
+  margin: 10px 20px;
+  padding: 14px 12px;
+  font-size: 16px;
+  top:0px;
+  margin-left: 0px;
+  border: 1px solid;
+  border-radius: 2px;
+  border-color: #ccc;
+  outline: none;
+  cursor: pointer;
+  
+}
+
+/* .Gender :hover{
+  background-color: hsla(244, 59%, 73%, 0.25);
+} */
   .searchInput label {
     position: absolute;
     bottom: 0px;
@@ -47,7 +80,18 @@
     width: 100%;
     height: 100%;
     pointer-events: none;
+  }
+
+  .label-name{
     border-bottom: #ccc 1px solid;
+  }
+  .labelgender{
+    position: absolute;
+    bottom: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
   }
   .searchInput label::after {
     content: "";
@@ -96,9 +140,8 @@
   }
   
   .button-see-results {
-    background: #1976d2;
-    width: 12rem;
-    height: 3.4rem;
+    width: 100%;
+    height: 3rem;
     margin: 0;
     display: flex;
     align-items: center;
