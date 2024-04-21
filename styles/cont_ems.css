@@ -1,5 +1,5 @@
 body {
-  font: "Balsamiq Sans", Helvetica, Arial, serif;
+  font-family: "Balsamiq Sans";
 }
  
 
@@ -10,6 +10,7 @@ body {
   height: auto;
   margin: 0 auto;
   background-color: #fffbf8;
+  padding: 20px;
 }
 
 
@@ -17,7 +18,7 @@ body {
   margin-top: 50px;
   margin-left: 5px;
   text-align: center;
-  font-size: 32px;
+  font-size: 38px;
   color: #713F97;
 }
 
@@ -33,6 +34,8 @@ body {
   border-radius: 2px;
   border-color: #b786dc;
   outline: none;
+  font-family: "Balsamiq Sans";
+  color: #8056a0;
 }
 
 #find-hosps{
@@ -45,6 +48,7 @@ body {
   border: 2px;
   border-radius: 2px;
   background-color: #eae3ff;
+  font-family: "Balsamiq Sans";
 }
 
 #hospital-list {
@@ -53,6 +57,18 @@ body {
   
 .hospital-item {
   margin-bottom: 10px;
+}
+
+.hospital-item h3{
+  font-size: 24px; 
+  color: #3d1e55;
+  margin-bottom: 10px;
+}
+
+.hospital-item p{
+  margin-top: 3px;
+  margin-bottom: 0px;
+  /* color: #7d45a8; */
 }
 
 #loading-more{

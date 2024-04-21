@@ -1,5 +1,5 @@
 body {
-  font: "Balsamiq Sans", Helvetica, Arial, serif;
+  font-family: "Balsamiq Sans";
   color: #fff;
 }
 
@@ -28,6 +28,7 @@ body {
   padding: 14px 12px;
   font-size: 16px;
   border-radius: 2px; 
+  font-family: "Balsamiq Sans";
 }
 
 .login input[type=text],
@@ -50,6 +51,7 @@ button[id=myButton] {
   font-size: 24px;
   transition: 0.2s;
   margin: 20px 0px;
+  font-family: "Balsamiq Sans";
 }
 
 .login input[type=submit]:hover {
@@ -61,6 +63,7 @@ button[id=myButton] {
   margin-bottom: 30px;
   color: #713F97;
   font-size: 30px;
+  font-weight: 300;
 }
 
 .login p {
@@ -116,9 +119,9 @@ a{
     text-decoration: none;
 }
 
-h2{
+.title{
   color:#713F97;
-  font-weight: 600;
+  font-weight: 500;
   width: 100%;
   text-align: center;
   margin: auto;

@@ -1,5 +1,5 @@
 body{
-  font: "Balsamiq Sans", Helvetica, Arial, serif;
+  font-family: "Balsamiq Sans", Helvetica, Arial, serif;
 }
 
 .pop-up-bg {
@@ -43,6 +43,10 @@ table {
   width: 100%;
   background-color: #F6F3FF;
   text-align: center;
+}
+
+thead{
+  font-size: 28px;
 }
 
 th, td {

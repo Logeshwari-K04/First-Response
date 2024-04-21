@@ -2,7 +2,7 @@
   padding: 0;
   margin: 0;
   box-sizing: border-box;
-  font: "Balsamiq Sans", Helvetica, Arial, serif;
+  font-family: "Balsamiq Sans", Helvetica, Arial, serif;
 }
   
 main,
@@ -32,17 +32,30 @@ header {
   background-color: #fff;
   top: 0;
   z-index: 1;
+  
 }
+
+header h3{
+  display: inline-block;
+  margin: 0;
+  font-family: 'Balsamiq Sans';
+  margin-left: 5px;
+  margin-top: 3px;
+  font-weight: 200;
+  color: #713F97;
+  font-size: 28px;
+}
+
 .logo {
   display: flex;
   flex-direction: row;
-  font-family: "Merriweather", serif;
+  font-family: "Balsamiq Sans";
 }
 .logo h1 {
   padding-left: 1rem;
   display: flex;
   align-items: center;
-  font-family: "Merriweather", serif;
+  font-family: "Balsamiq Sans";
 }
 header ul li {
   margin-left: 3rem;
