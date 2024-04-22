@@ -6,6 +6,7 @@ module.exports = {
   index: './src/index.js',
   cont_ems: './src/cont_ems.js',
   call_fa: './src/call_fa.js',
+  fa_tips: './src/fa_tips.js',
 },
   output: {
     path: path.resolve(__dirname, 'src'),

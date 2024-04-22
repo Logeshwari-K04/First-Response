@@ -68,24 +68,17 @@ initMap();
 
 
 async function getDataAndMark() {
-  const { PinElement } = await google.maps.importLibrary(
-    "marker",
-  );
 
-  const pinstyle = new PinElement({
-    background: "#FBBC04",
-  });
-
-  const docRef = doc(db, 'users', 'user3');
+  const docRef = doc(db, 'users', 'user4');
   getDoc(docRef)
     .then((doc) => {
       const location = doc.data();
-        new google.maps.Marker({
-          position: { lat: parseFloat(location.latitude), lng: parseFloat(location.longitude) },
-          map: map,
-          label: "FA",
-          content: pinstyle.element,
-        });
+      const image = "/imgs/logo.png";
+      new google.maps.Marker({
+        position: { lat: parseFloat(location.latitude), lng: parseFloat(location.longitude) },
+        map: map,
+        label: "FA",
+      });
     })
     .catch((error) => {
       console.log("Error getting first aider location: ", error);

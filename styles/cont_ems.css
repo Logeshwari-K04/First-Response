@@ -5,7 +5,7 @@ body {
 
 .cont{
   margin-top: 50px;
-  border: 1px solid #F6F3FF;
+  border: 1px solid #EAE3FF;
   width: 400px;
   height: auto;
   margin: 0 auto;
@@ -47,7 +47,7 @@ body {
   color:#000000;
   border: 2px;
   border-radius: 2px;
-  background-color: #eae3ff;
+  background-color: #EAE3FF;
   font-family: "Balsamiq Sans";
 }
 
