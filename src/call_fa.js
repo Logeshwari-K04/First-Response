@@ -1,6 +1,6 @@
 import { initializeApp } from 'firebase/app';
 import {
-  getFirestore, collection, doc, getDoc, query, where,
+  getFirestore, collection, doc, getDoc, getDocs, query, where,
 } from 'firebase/firestore';
 
 const firebaseConfig = {
@@ -15,7 +15,7 @@ const firebaseConfig = {
 
 initializeApp(firebaseConfig);
 const db = getFirestore();
-
+const colRef = collection(db, 'users')
 
 let map;
 
@@ -68,22 +68,26 @@ initMap();
 
 
 async function getDataAndMark() {
+  try{
+    // const docRef = await getDocs(colRef);
+    const faquery = query(collection(db, 'users'), where('validtill', '!=', ''));
+    const querySnapshot = await getDocs(faquery);
 
-  const docRef = doc(db, 'users', 'user4');
-  getDoc(docRef)
-    .then((doc) => {
+    querySnapshot.forEach((doc) => {
       const location = doc.data();
-      const image = "/imgs/logo.png";
+      const image = "https://developers.google.com/maps/documentation/javascript/examples/full/images/beachflag.png";
+      const mimage = "/imgs/Lpin.png";
       new google.maps.Marker({
-        position: { lat: parseFloat(location.latitude), lng: parseFloat(location.longitude) },
+        position: { lat: location.latitude, lng: location.longitude },
         map: map,
-        label: "FA",
+        // label: "FA",
+        icon: mimage,
       });
     })
-    .catch((error) => {
+  }
+  catch(error) {
       console.log("Error getting first aider location: ", error);
-    });
-
+  }
 }
 
 document.getElementById('needfa').addEventListener('click', getDataAndMark);

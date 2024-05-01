@@ -66,6 +66,12 @@ body {
     margin-bottom: 0px;
 }
 
-#hh3, #reminder{
+#hh3{
     font-size: 22px;
+}
+
+#reminder{
+    font-size: 20px;
+    font-style: italic;
+    text-align: center;
 }

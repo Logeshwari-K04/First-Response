@@ -7,9 +7,12 @@ module.exports = {
   cont_ems: './src/cont_ems.js',
   call_fa: './src/call_fa.js',
   fa_tips: './src/fa_tips.js',
+  ca: './src/ca.js',
+  login: './src/login.js',
+  profile: './src/profile.js',
 },
   output: {
-    path: path.resolve(__dirname, 'src'),
+    path: path.resolve(__dirname, 'src/bundle'),
     filename: '[name].bundle.js'
   },
   watch: true,

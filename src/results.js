@@ -34,8 +34,9 @@ async function getResults() {
     const fetchData = await fetchDataFromAPI(`https://healthservice.priaid.ch/diagnosis?symptoms=${ids}&gender=${gender}&year_of_birth=${yob}&token=${token}&format=json&language=en-gb`);
     const results = await fetchData.json();
     console.log(results.length);
+    console.log(results);
     if (results.length == 0) {
-        document.querySelector(".pop-up-bg").style.display = "flex"
+        document.querySelector(".pop-up-bg").style.display = "flex";
     }
     else {
         results.forEach(result => {
@@ -53,7 +54,7 @@ async function getResults() {
 
 
             const docsList = result.Specialisation;
-            doctorSpecialization.innerText += `${docsList[0].Name} `
+            doctorSpecialization.innerText += `${docsList[0].Name}`;
             for (var i = 1; i < docsList.length; i++) {
                 doctorSpecialization.innerText += `, ${docsList[i].Name}`
             }

@@ -15,7 +15,7 @@
   \**********************/
 /***/ (() => {
 
-eval("console.log('console log')\n\n//# sourceURL=webpack://webapp/./src/index.js?");
+eval("console.log('console log');\r\n\r\nconst login = document.querySelector('.box');\r\nconst ca = document.querySelector('.box1');\r\n\r\nlogin.addEventListener('click', (e) => {\r\n    window.location.href = 'login.html';\r\n});\r\n\r\nca.addEventListener('click', (e) => {\r\n    window.location.href = 'ca.html';\r\n});\n\n//# sourceURL=webpack://webapp/./src/index.js?");
 
 /***/ })
 

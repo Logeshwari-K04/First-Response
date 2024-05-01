@@ -2,6 +2,10 @@ body{
   font-family: "Balsamiq Sans", Helvetica, Arial, serif;
 }
 
+.underline{
+  margin-right: auto;
+}
+
 .pop-up-bg {
   overflow: hidden;
   height: calc(100vh - 85px);
@@ -36,6 +40,10 @@ body{
 .popup .text {
   font-size: 1.5rem;
   padding-bottom: 1rem;
+}
+
+.disclaimer{
+  font-size: 20px;
 }
 
 table {

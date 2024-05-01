@@ -17,7 +17,6 @@ a {
   color: inherit;
 }
 p {
-  font-family: "Open Sans";
   font-style: normal;
   font-weight: normal;
   font-size: 36px;
@@ -75,6 +74,7 @@ header ul li:hover {
   justify-content: space-between;
   width: 90%;
   margin: 0 auto;
+  gap: 50px;
 }
 
 main {
@@ -84,6 +84,18 @@ main {
   padding-top: 30px;
 }
 
+.card{
+  width: 445px;
+  margin: 0 auto;
+  margin-top: 30px;
+  padding: 20px;
+  height: auto;
+}
+.disclaimer{
+  text-align: center; 
+  font-weight: bold;
+  color: #713F97;
+}
 .dropdown-options ul {
   height: 150px;
   overflow-y: scroll;

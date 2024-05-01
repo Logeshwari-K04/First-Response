@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>User Profile</title>
+    <link rel="icon" type="image/svg+xml" href="./imgs/logo.png" />
     <link rel="stylesheet" href="./styles/profile.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -11,52 +12,51 @@
 </head>
 <body>
     <div class="profile-container">
-        <div class="profile-header">
-            <h1>PROFILE</h1>
-            <h3>User ID</h3>
-        </div>
-        <div class="profile-info">
-            <div class="info-row">
+        <h1 class="title">PROFILE</h1>
+        <h3 class="uid">User ID</h3>
+        <form class="profile">
+            <div id="info">
                 <label for="name">Name:</label>
-                <span id="name"> PRIYA</span>
+                <input type="text" id="name" name="name" value=""><br>
             </div>
-            <div class="info-row">
-                <label for="gender">Gender:</label>
-                <span id="gender">FEMALE</span>
-            </div>
-            <div class="info-row">
+            <div id="info">
                 <label for="age">Age:</label>
-                <span id="age">23</span>
+                <input type="number" id="age" name="age" value=""><br>
             </div>
-            <div class="info-row">
-                <label for="blood-group">Blood Group:</label>
-                <span id="blood-group">B +ve</span>
+            <div id="info">
+                <label for="gender">Gender:</label>
+                <input type="text" id="gender" name="gender" value=""><br>
             </div>
-            <div class="info-row">
-                <label for="first-aider-certificate-id">First Aider Certificate ID:</label>
-                <span id="first-aider-certificate-id">NILL</span>
+            <div id="info">
+                <label for="bg">Blood Group:</label>
+                <input type="text" id="bg" name="bg" value=""><br>
             </div>
-            <div class="info-row">
-                <label for="validity-period">Validity Period:</label>
-                <span id="validity-period">NILL</span>
+            <div id="info">
+                <label for="certid">First Aider Certificate ID:</label>
+                <input type="text" id="certid" name="certid" value=""><br>
             </div>
-            <div class="info-row">
-                <label for="contact-number">Contact Number:</label>
-                <span id="contact-number">9123456780</span>
+            <div id="info">
+                <label for="valid">Valid Till:</label>
+                <input type="date" id="valid" name="valid" value=""><br>
             </div>
-            <div class="info-row">
-                <label for="email-address">Email Address:</label>
-                <span id="email-address">priyamani4476@gmail.com</span>
+            <div id="info">
+                <label for="phone">Contact Number:</label>
+                <input type="number" id="phone" name="phone" value=""><br>
             </div>
-            <div class="info-row">
-                <label for="permanent-address">Permanent Address:</label>
-                <span id="permanent-address">123, Anna Salai, Chennai - 600002</span>
+            <div id="info">
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" value="" disabled><br>
             </div>
-        </div>
+            <div id="info">
+                <label for="address">Address:</label>
+                <textarea id="address" name="address" value=""></textarea><br>
+            </div>
+            <button type="submit" id="save">Save</button>
+        </form>
         <div class="button">
             <button id="logout" style="font-family: Balsamiq Sans;">Logout</button>
         </div>
     </div>
-    <!-- <script src="script.js"></script> -->
+    <script src="./src/bundle/profile.bundle.js"></script>
 </body>
 </html>

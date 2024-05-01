@@ -4,7 +4,6 @@ body {
 }
 
 .box{
-  margin-top: 10px;
   border: 1px solid #F6F3FF;
   width: 400px;
   height: auto;
@@ -29,11 +28,6 @@ body {
   font-size: 16px;
   border-radius: 2px; 
   font-family: "Balsamiq Sans";
-}
-
-.login input[type=text],
-.login input[type=password],
-.login input[type=email] {
   border: 1px solid #c0c0c0;
   border-color: #A75FDD;
   outline: none;
