@@ -24,6 +24,14 @@ const db = getFirestore();
 const auth = getAuth();
 const colRef = collection(db, 'users');
 
+let userdata, uid;
+var lat, lng;
+
+navigator.geolocation.getCurrentPosition(function(position) {
+  lat = position.coords.latitude;
+  lng = position.coords.longitude;
+});
+
 const form = document.querySelector('.login');
 
 form.addEventListener('submit', (e) => {
@@ -37,13 +45,14 @@ form.addEventListener('submit', (e) => {
   createUserWithEmailAndPassword(auth, uemail, upass)
     .then((cred) => {
       const user = cred.user;
-      const uid = user.uid;
-      const userdata = {
+      uid = user.uid;
+      const userDocRef = doc(db, 'users', uid);
+      userdata = {
         name: uname,
         email: uemail,
         phone: uphone,
-        latitude: "",
-        longitude: "",
+        latitude: lat,
+        longitude: lng,
         gender: "",
         bgp: "",
         age: "",
@@ -53,26 +62,20 @@ form.addEventListener('submit', (e) => {
         userid: uid,
       }
       console.log('user created:', user);
-      setDoc(colRef, uid, userdata);
-      navigator.geolocation.getCurrentPosition(function(position) {
-        var lat = position.coords.latitude;
-        var lng = position.coords.longitude;
-        const userData = {
-            latitude: lat,
-            longitude: lng,
-        };
-        updateDoc(doc(db, 'users', uid), userData);
-      });
+      return setDoc(userDocRef, userdata);
+    })
+    .then(() => {
+      console.log('document created successfully!');
       alert(`Account created for ${uname}!`);
 
       setTimeout(() => {
         window.location.href = 'homes.html';
       }, 10000);
-    }).catch((err) => {
-      console.log('cannot create account', err.message);
+    })
+    .catch((err) => {
+      console.error('cannot create account', err.message);
   });
 });
-
 
 // const googleAuthLink = document.getElementById('google-auth-link');
 

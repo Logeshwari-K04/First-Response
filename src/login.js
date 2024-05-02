@@ -23,6 +23,7 @@ initializeApp(firebaseConfig);
 const db = getFirestore();
 const auth = getAuth();
 const colRef = collection(db, 'users');
+let lat, lng;
 
 const form = document.querySelector('.login');
 
@@ -32,26 +33,30 @@ form.addEventListener('submit', (e) => {
   const uemail = form.email.value;
   const upass = form.password.value;
 
-  signInWithEmailAndPassword(auth, uemail, upass)
-    .then((cred) => {
+  navigator.geolocation.getCurrentPosition(function(position) {
+    lat = position.coords.latitude;
+    lng = position.coords.longitude;
+  
+    signInWithEmailAndPassword(auth, uemail, upass)
+      .then((cred) => {
         const user = cred.user;
         const uid = user.uid;
-        console.log('user logged in:', cred.user);
-        navigator.geolocation.getCurrentPosition(function(position) {
-            var lat = position.coords.latitude;
-            var lng = position.coords.longitude;
-            const userData = {
-                latitude: lat,
-                longitude: lng,
-            };
-            updateDoc(doc(db, 'users', uid), userData);
-        });
+        console.log('user logged in:', cred.user);        
+        
+        if(lat && lng){
+          const userData = {
+            latitude: lat,
+            longitude: lng,
+          };
+          updateDoc(doc(db, 'users', uid), userData);
+        }
         setTimeout(() => {
-            window.location.href = 'homes.html';
+          window.location.href = 'homes.html';
         }, 15000);
-    }).catch((err) => {
-      console.log('cannot create account', err.message);
-    });
+      }).catch((err) => {
+        console.log('cannot create account', err.message);
+      });
+  });
 });
 
 
